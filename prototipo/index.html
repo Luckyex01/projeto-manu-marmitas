@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FITBOX — Marmitas fit no freezer da sua academia</title>
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="proto-ribbon">Protótipo · valores nutricionais e preços sugeridos a validar pela nutricionista</div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo"><img src="assets/logo.jpg" alt="FITBOX"></a>
+      <nav class="header__nav" aria-label="Principal">
+        <a href="#como-comprar">Como comprar</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#confianca">Feito por quem</a>
+      </nav>
+      <a href="#como-comprar" class="btn btn--green btn--sm">Comprar agora</a>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Pegue · pague · aqueça</span><span>Alto teor de proteína</span><span>Congelada logo após o preparo</span><span>Tabela nutricional de cada prato</span><span>Feita em pequenos lotes</span>
+      <span>Pegue · pague · aqueça</span><span>Alto teor de proteína</span><span>Congelada logo após o preparo</span><span>Tabela nutricional de cada prato</span><span>Feita em pequenos lotes</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Freezer FITBOX · autoatendimento</p>
+          <h1>Treinou?<br><span class="txt-orange">Sua refeição</span> <span class="txt-green">já está aqui.</span></h1>
+          <p class="hero__lead">Marmitas fit congeladas, com proteína de verdade e tabela nutricional na palma da mão. Sem fila, sem atendente.</p>
+          <div class="hero__cta">
+            <a href="#como-comprar" class="btn btn--orange">Como comprar em 3 passos</a>
+            <a href="#cardapio" class="btn btn--ghost">Ver cardápio</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <video autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg" aria-hidden="true">
+            <source src="assets/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-comprar" class="section steps">
+      <div class="container">
+        <h2 class="section__title">Como comprar no <span class="txt-orange">freezer</span></h2>
+        <p class="section__sub">Leva menos de 1 minuto. Você não precisa falar com ninguém.</p>
+        <ol class="steps__list">
+          <li class="step">
+            <span class="step__n">1</span>
+            <h3>Escolha</h3>
+            <p>Abra a tampa de vidro e pegue sua marmita. Confira os macros aqui no cardápio.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <h3>Pague</h3>
+            <p>Aproxime o cartão ou o celular na maquininha ao lado do freezer.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <h3>Aqueça</h3>
+            <p>Micro-ondas, seguindo o tempo da etiqueta. Pronto para comer.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="cardapio" class="section menu">
+      <div class="container">
+        <div class="menu__head">
+          <div>
+            <h2 class="section__title">Cardápio <span class="txt-green">do freezer</span></h2>
+            <p class="section__sub">Toque no prato para ver a tabela nutricional completa.</p>
+          </div>
+          <div class="chips" role="tablist" aria-label="Filtrar pratos">
+            <button class="chip is-active" data-filter="todos">Todos</button>
+            <button class="chip" data-filter="proteina">+ Proteína</button>
+            <button class="chip" data-filter="lowcarb">Low carb</button>
+            <button class="chip" data-filter="vegano">Vegano</button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="note">Valores estimados pela Tabela TACO (4ª ed., 2011), energia pelo método 4/4/9, sem sal de adição. Preços sugeridos. Tudo a validar pela nutricionista responsável.</p>
+      </div>
+    </section>
+
+    <section id="confianca" class="section trust">
+      <div class="container trust__inner">
+        <div class="trust__photos">
+          <img src="assets/foto1.jpg" alt="Lote de marmitas FITBOX prontas">
+          <img src="assets/foto5.jpg" alt="Finalização das marmitas com cebolinha">
+        </div>
+        <div class="trust__text">
+          <p class="eyebrow">Feito por quem entende de nutrição</p>
+          <h2 class="section__title">Comida de verdade, <span class="txt-orange">congelada no ponto.</span></h2>
+          <ul class="checks">
+            <li>Receitas planejadas por estudante de Nutrição, com cálculo de macros por prato.</li>
+            <li>Preparadas em pequenos lotes e congeladas logo após o preparo.</li>
+            <li>Ingredientes e tabela nutricional sempre visíveis, aqui no seu celular.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <img src="assets/logo.jpg" alt="FITBOX" class="footer__logo">
+      <p>Marmitas fit no freezer da sua academia.</p>
+      <p class="footer__small">© 2026 FITBOX · Protótipo</p>
+    </div>
+  </footer>
+
+  <a href="#como-comprar" class="fab">Como comprar?</a>
+
+  <dialog id="detalhe" class="modal">
+    <div class="modal__body" id="detalhe-body"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
