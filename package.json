@@ -1,22 +1,27 @@
 {
-  "name": "manu-marmitas",
+  "name": "fitbox-vitrine",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "vite prototipo --host 0.0.0.0 --port 8090",
+    "build": "vite build prototipo --outDir ../dist --emptyOutDir",
+    "preview": "vite preview --host 0.0.0.0 --outDir dist --port 4173",
+    "test": "vitest run",
+    "legacy:dev": "vite --host 0.0.0.0 --port 5173",
+    "legacy:build": "tsc -b && vite build"
   },
   "dependencies": {
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "typescript": "^5.9.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
   }
 }
