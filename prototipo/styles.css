@@ -43,9 +43,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* Marquee (estilo barra institucional Cumbuca) */
 .marquee { background: var(--orange); color: #111; overflow: hidden; white-space: nowrap; font-weight: 800; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
-.marquee__track { display: inline-flex; animation: marquee 28s linear infinite; padding: 9px 0; }
-.marquee__track span { padding: 0 22px; position: relative; }
-.marquee__track span::after { content: '●'; position: absolute; right: -4px; font-size: .5rem; top: 50%; transform: translateY(-50%); }
+.marquee__track { display: inline-flex; align-items: center; animation: marquee 34s linear infinite; padding: 10px 0; }
+.marquee__item { display: inline-block; white-space: nowrap; }
+.marquee__dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #111; margin: 0 44px; flex-shrink: 0; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* Hero */
