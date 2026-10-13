@@ -1,38 +1,46 @@
-# Manu Marmitas
+# FITBOX
 
-Vitrine demonstrativa feita com React, TypeScript e Vite. Não processa
-pagamentos nem cria pedidos reais.
+Protótipo de vitrine digital FITBOX para marmitas fit congeladas no freezer de
+autoatendimento da academia. O projeto principal é o site estático em
+`prototipo/` (HTML, CSS e JavaScript), servido e compilado pelo Vite.
 
-## Desenvolvimento
+## Executar o FITBOX
 
-Requer Node.js 20.19+ ou 22.12+.
+Requer Node.js 20.19+ ou 22.12+ e as dependências instaladas (`npm install`).
 
 ```sh
-npm install
 npm run dev
 ```
 
-Para verificar a versão de produção:
+O site fica disponível em `http://localhost:8090` e, na rede local, no IP desta
+máquina na porta `8090`.
+
+## Build e preview
 
 ```sh
 npm run build
 npm run preview
 ```
 
-## Dados e limites da demonstração
+O build estático é gravado em `dist/`.
 
-- Os nomes, preços e descrições em `src/data/products.ts` são exemplos.
-- As fichas nutricionais aguardam a planilha da nutricionista; não substitua
-  os avisos sem confirmar os valores e porções.
-- O acesso é simulado no navegador. A sessão guarda somente o email; a senha
-  não é validada nem persistida.
-- A sacola fica no `localStorage` deste navegador. Não há contas compartilhadas
-  entre dispositivos, cálculo de frete ou integração de pagamento.
-- Fotos de demonstração usam URLs do Unsplash. A [licença do Unsplash](https://unsplash.com/license)
-  permite uso comercial; substitua as imagens por arquivos aprovados para a
-  marca quando estiverem disponíveis.
+## Dados e limites do protótipo
 
-## Cloudflare Pages
+- Os valores nutricionais e preços são sugestões e devem ser validados pela
+  nutricionista responsável.
+- O protótipo não processa pagamentos nem cria pedidos reais.
 
-Configuração de build: `npm run build`  
-Diretório de saída: `dist`
+## Aplicação React anterior
+
+A aplicação demonstrativa React/TypeScript anterior foi preservada em `src/` e
+na raiz do projeto, mas não é o produto principal. Para executá-la explicitamente:
+
+```sh
+npm run legacy:dev
+```
+
+Para compilar essa versão antiga:
+
+```sh
+npm run legacy:build
+```
