@@ -2,6 +2,26 @@
 
 ## Fato
 
+### Atualização da mídia do Hero, 17/10/2026
+
+- O vídeo substituído por Lucas em `fitbox/fitbox-video-ia.mp4` tem
+  18.443.734 bytes e resolução 2160 x 3840. Foi preservado.
+- Derivado oficial em `src/fitbox/assets/hero.mp4`: 969.530 bytes
+  (0,970 MB decimal), 540 x 960, H.264, sem áudio, com faststart.
+  Gerado com ffmpeg, CRF 28, maxrate 900k e bufsize 1800k.
+- Poster extraído no segundo zero do derivado, em JPEG:
+  `src/fitbox/assets/poster.jpg`, 44.297 bytes (44,3 kB decimal).
+- A Home importa os dois derivados locais. O CSS oficial sobrescreve
+  somente a imagem de fundo da mídia com o mesmo poster. Os assets
+  históricos do protótipo permanecem intactos; seu poster ainda é emitido
+  pelo Vite por constar no CSS histórico, mas não é o fundo efetivo da Home.
+- Build, seis E2E da Home e suíte completa (30 unitários e 40 E2E)
+  aprovados, exit 0. Playwright executado com dois workers.
+- **Hipótese:** a menor transferência pode ajudar o carregamento; tamanho
+  abaixo de 1,5 MB não garante LCP dentro da meta.
+- **Pendente:** medir LCP novamente. Os números abaixo e a inspeção estática
+  posterior descrevem a mídia anterior, não uma medição destes derivados.
+
 As medidas abaixo são de laboratório local, não dados de usuários ou do
 Cloudflare Pages. O procedimento e a tabela completa estão em
 [Auditoria técnica](AUDITORIA_TECNICA.md).

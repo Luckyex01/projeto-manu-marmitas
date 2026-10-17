@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import hero from '../../prototipo/assets/hero.mp4';
-import poster from '../../prototipo/assets/poster.jpg';
+import hero from './assets/hero.mp4';
+import poster from './assets/poster.jpg';
 import preparo from './assets/foto5.webp';
 import marmitas from './assets/foto1.webp';
 import preparoMenor from './assets/foto5-360.webp';
