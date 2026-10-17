@@ -31,7 +31,8 @@ section[id] { scroll-margin-top: 170px; }
 .header__inner { min-width: 0; }
 .header__logo { flex-shrink: 0; }
 .marquee__group { display: inline-flex; align-items: center; }
-.animation-control { display: block; margin: 8px 20px 0 auto; padding: 8px 12px; background: var(--ink); color: var(--white); border: 1px solid var(--line); border-radius: 8px; font-size: .75rem; min-height: 44px; }
+.marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; }
 figure { min-width: 0; }
 .marca { white-space: nowrap; }
 .marca__fit { color: var(--white); }
@@ -102,5 +103,6 @@ body:has(dialog[open]) { overflow: hidden; }
   .hero__figure { max-width: 380px; justify-self: end; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }

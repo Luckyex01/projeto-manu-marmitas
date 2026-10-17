@@ -14,7 +14,6 @@ export function Home() {
     () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   );
   const [erroVideo, setErroVideo] = useState('');
-  const [barraPausada, setBarraPausada] = useState(false);
 
   useEffect(() => {
     const consulta = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -43,16 +42,13 @@ export function Home() {
 
   const frases = ['Treinou? Bora escolher', 'Sua próxima refeição começa aqui', 'Conheça os pratos', 'Macros na palma da mão', 'Escolha do seu jeito'];
   return <>
-    <div className="marquee">
-      <div className="marquee__track" aria-hidden="true" style={{ animationPlayState: barraPausada || movimentoReduzido ? 'paused' : 'running' }}>
+    <div className="marquee" tabIndex={0} role="region" aria-label="Chamadas do cardápio. Mantenha o foco nesta faixa para pausar a animação.">
+      <div className="marquee__track" aria-hidden="true">
         {[...frases, ...frases].map((frase, indice) => <span className="marquee__group" key={indice}>
           <span className="marquee__item">{frase}</span><span className="marquee__dot" />
         </span>)}
       </div>
     </div>
-    <button className="animation-control" onClick={() => setBarraPausada(!barraPausada)} disabled={movimentoReduzido}>
-      {movimentoReduzido ? 'Animação reduzida' : barraPausada ? 'Retomar barra' : 'Pausar barra'}
-    </button>
     <section className="hero" aria-labelledby="hero-titulo">
       <div className="container hero__inner">
         <div className="hero__text">

@@ -90,7 +90,7 @@ Tokens CSS equivalentes:
 - Elemento separador: esfera escura.
 - Espacamento de respiro: margem lateral fixa de 44px em cada lado da esfera separadora (padrao de legibilidade Cumbuca Boa).
 - Animacao: rolagem horizontal continua com duracao calibrada para leitura confortavel sem interrupcoes bruscas.
-- Implementacao vigente: 34 segundos, controle de pausa e respeito a movimento reduzido. Chamadas de descoberta, sem alegacoes nao comprovadas ou repeticao dos avisos demonstrativos.
+- Implementacao vigente: 34 segundos, sem botao ou linha de controles; pausa por hover e foco de teclado na faixa, sem animacao com movimento reduzido. Essas mitigacoes nao comprovam conformidade com WCAG 2.2.2; ver [Acessibilidade](ACESSIBILIDADE.md). Chamadas de descoberta, sem alegacoes nao comprovadas ou repeticao dos avisos demonstrativos.
 
 ---
 

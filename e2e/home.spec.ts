@@ -6,15 +6,13 @@ test('Home, tutorial sem cobrança e CTA em layout responsivo', async ({ page },
   page.on('pageerror', (erro) => erros.push(erro.message));
   await page.goto('/');
   const barra = page.locator('.marquee');
+  await expect(barra).toBeVisible();
   await expect(barra).toContainText('Treinou? Bora escolher');
   await expect(barra).toContainText('Macros na palma da mão');
   await expect(barra).not.toContainText(/Vitrine acadêmica|Confirmação sem cobrança|a validar pela nutricionista/);
   await expect(page.locator('.marquee__item')).toHaveCount(10);
-  await page.getByRole('button', { name: 'Pausar barra', exact: true }).click();
-  await expect(page.locator('.marquee__track')).toHaveCSS('animation-play-state', 'paused');
   await barra.screenshot({ path: testInfo.outputPath('barra-chamadas.png') });
-  await page.getByRole('button', { name: 'Retomar barra', exact: true }).click();
-  await expect(page.locator('.marquee__track')).toHaveCSS('animation-play-state', 'running');
+  await expect(page.getByRole('button', { name: /Pausar barra|Retomar barra/ })).toHaveCount(0);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Treinou?');
   await expect(page.getByRole('heading', { name: 'Confirme a demonstração' })).toBeVisible();
   await expect(page.locator('video')).toHaveJSProperty('muted', true);
@@ -84,10 +82,39 @@ test('movimento reduzido e falha do vídeo preservam a imagem e a navegação', 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.route('**/*hero*.mp4', (rota) => rota.abort());
   await page.goto('/');
-  await expect(page.getByRole('button', { name: 'Animação reduzida' })).toBeDisabled();
+  await expect(page.locator('.marquee')).toBeVisible();
+  await expect(page.locator('.marquee__track')).toHaveCSS('animation-name', 'none');
   expect(await page.locator('video').evaluate((video: HTMLVideoElement) => video.paused)).toBe(true);
   await page.getByRole('button', { name: 'Reproduzir vídeo' }).click();
   await expect(page.getByText(/Vídeo indisponível|Não foi possível reproduzir o vídeo/)).toBeVisible();
   await page.getByRole('link', { name: 'Ver pratos no freezer', exact: true }).click();
   await expect(page.locator('article.card')).toHaveCount(6);
+});
+
+test('faixa contínua pausa por hover e foco sem criar linha de controles', async ({ page }, testInfo) => {
+  await page.goto('/');
+  const barra = page.locator('.marquee');
+  const trilha = page.locator('.marquee__track');
+  await page.mouse.move(0, 0);
+  await expect(trilha).toHaveCSS('animation-play-state', 'running');
+  if (testInfo.project.name === 'desktop') {
+    await barra.hover();
+    await expect(trilha).toHaveCSS('animation-play-state', 'paused');
+    await page.mouse.move(0, 0);
+    await expect(trilha).toHaveCSS('animation-play-state', 'running');
+  }
+  await page.keyboard.press('Tab');
+  await barra.focus();
+  await expect(barra).toBeFocused();
+  await expect(trilha).toHaveCSS('animation-play-state', 'paused');
+  await page.keyboard.press('Tab');
+  await expect(barra).not.toBeFocused();
+  await expect(trilha).toHaveCSS('animation-play-state', 'running');
+  const espaco = await barra.evaluate((elemento) => {
+    const seguinte = elemento.nextElementSibling;
+    if (!seguinte) throw new Error('Hero ausente após a faixa.');
+    return seguinte.getBoundingClientRect().top - elemento.getBoundingClientRect().bottom;
+  });
+  expect(espaco).toBeLessThanOrEqual(1);
+  expect(espaco).toBeGreaterThanOrEqual(0);
 });

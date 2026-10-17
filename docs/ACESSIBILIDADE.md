@@ -18,7 +18,32 @@ Resultados e escopo medidos estão em [Auditoria técnica](AUDITORIA_TECNICA.md)
 O estado anterior de seis botões com nomes incompatíveis foi corrigido:
 o nome acessível dos botões de adição contém o texto visível.
 
-### Critérios pertinentes
+### Decisão sobre a faixa animada, 17/10/2026
+
+- **Fato:** por decisão de produto, a faixa mantém rolagem contínua em
+  desktop e mobile, sem botão de pausa ou linha extra de controles.
+  A animação pausa durante hover ou foco na faixa, que recebe foco de
+  teclado com indicador visível e nome explicativo. Com
+  `prefers-reduced-motion: reduce`, a animação é desativada.
+- **Hipótese:** essas medidas reduzem o desconforto para parte dos usuários,
+  mas não equivalem a uma pausa persistente disponível a todos.
+- **Pendente:** a ausência de mecanismo persistente, especialmente em telas
+  de toque sem hover, impede declarar atendimento ao
+  [critério 2.2.2, Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)
+  para esta faixa. Pausar somente enquanto o foco está retido não satisfaz
+  esse requisito. Axe aprovado não elimina esta pendência. O controle do
+  vídeo permanece independente e não foi removido.
+
+Validação desta alteração: build aprovado; 30 testes unitários e 40 E2E
+aprovados com `npm run test -- --workers=2` (exit 0). A execução inicial
+com sete workers terminou com três timeouts e 37 E2E aprovados (exit 1);
+a causa dos timeouts não foi comprovada. As regressões verificam faixa
+visível, ausência do botão, pausa por foco, hover no desktop, movimento
+reduzido e ausência da linha extra antes do Hero. Capturas mobile de
+390 px e desktop de 1440 px foram inspecionadas. A verificação de layout
+também percorre 320, 697, 768, 900, 1024 e 1920 px sem overflow horizontal.
+
+### Critérios de verificação
 
 - Contraste de texto: 4,5:1 para texto comum e 3:1 para texto grande,
   conforme [WCAG 2.2, 1.4.3](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).

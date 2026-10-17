@@ -19,6 +19,7 @@ para escolher e comprar minha refeição sem fricção.
 - Textos renderizados da marca devem usar FIT em branco e BOX em laranja. Preservar os arquivos originais da logo e do vídeo.
 - As duas fotos de "Conheça a FITBOX" mantêm enquadramento 3:4 com `object-fit: cover` e altura responsiva. Atributos de dimensão e variantes de imagem não devem impor altura fixa ou alongar a seção.
 - A barra laranja deve usar chamadas curtas de descoberta dos pratos, sem repetir os avisos demonstrativos. Manter os avisos nos contextos de nutrição, preços e confirmação; não incluir alegações nutricionais ou de produção não comprovadas na barra.
+- A faixa mantém rolagem contínua no mobile e desktop, sem botão de pausa nem linha extra de controles. Pausar enquanto houver hover ou foco na faixa; desativar a animação com `prefers-reduced-motion: reduce`. A faixa deve receber foco de teclado com indicador visível. A limitação de pausa persistente em telas de toque está registrada em `docs/ACESSIBILIDADE.md`.
 - Incluir navegação Dúvidas e seis perguntas próprias: compra real, reserva/retirada, origem nutricional, fotos, persistência e ingredientes. Usar details/summary acessíveis, sem copiar políticas de entrega dos sites de referência.
 - Validar acessibilidade automatizada nas larguras 320, 390, 768 e 1440 px. A cobertura, os critérios WCAG 2.2 AA considerados e as limitações estão em `docs/ACESSIBILIDADE.md`.
 
