@@ -25,7 +25,10 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Executar testes unitarios
+      - name: Instalar Chromium para testes de navegador
+        run: npx playwright install --with-deps chromium
+
+      - name: Executar testes unitarios e jornadas de navegador
         run: npm run test
 
       - name: Executar build de producao

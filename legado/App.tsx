@@ -266,7 +266,7 @@ function App() {
               <h2>Um carinho em forma de comida.</h2>
             </div>
             <p className="section-copy">
-              Pratos gostosos para facilitar seus dias — sem abrir mão do
+              Pratos gostosos para facilitar seus dias, sem abrir mão do
               prazer de comer bem.
             </p>
           </div>

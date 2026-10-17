@@ -1,7 +1,12 @@
 node_modules/
 dist/
+dist-prototipo/
+dist-legado/
+playwright-report/
+test-results/
 .DS_Store
 *.local
 *.tsbuildinfo
 .venv/
 .venv-*/
+.vscode/

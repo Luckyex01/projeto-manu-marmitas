@@ -4,18 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite prototipo --host 0.0.0.0 --port 8090",
-    "build": "vite build prototipo --outDir ../dist --emptyOutDir",
+    "dev": "vite fitbox-app --config vite.config.ts --host 0.0.0.0 --port 8090",
+    "build": "tsc --noEmit && vite build fitbox-app --config vite.config.ts --outDir ../dist --emptyOutDir",
     "preview": "vite preview --host 0.0.0.0 --outDir dist --port 4173",
-    "test": "vitest run",
-    "legacy:dev": "vite --host 0.0.0.0 --port 5173",
-    "legacy:build": "tsc -b && vite build"
+    "test": "vitest run && playwright test",
+    "test:unit": "vitest run",
+    "prototipo:dev": "vite prototipo --host 0.0.0.0 --port 8092",
+    "prototipo:build": "vite build prototipo --outDir ../dist-prototipo --emptyOutDir",
+    "legacy:dev": "vite legado --config vite.config.ts --host 0.0.0.0 --port 5173",
+    "legacy:build": "tsc --noEmit && vite build legado --config vite.config.ts --outDir ../dist-legado --emptyOutDir"
   },
   "dependencies": {
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "^1.56.1",
     "@testing-library/react": "^16.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
